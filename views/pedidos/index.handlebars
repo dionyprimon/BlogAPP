@@ -1,0 +1,59 @@
+{{#if user}}
+<div class="card mt-2">
+    <div class="card-body">
+        <h1>Pedidos</h1>
+    </div>
+</div>
+
+{{!-- Botão para cadastro de novos pedidos --}}
+<a href="/pedidos/addpedido">
+    <button class="btn btn-success mt-2">Nova venda</button>
+</a>
+
+
+{{!-- mostra todos as vendas cadastradas --}}
+<div class="row mt-1 row-cols-1 row-cols-md-4 g-2">
+    {{#each pedidos}}
+    <div class="col">
+        <div class="card h-80">
+            <div class="card-body">
+                <h6 class="card-title" id="cliente">Cliente: {{this.cliente.nome}}</h5>
+                <p class="card-text">Valor total: {{this.valorTotal}},00</p>
+                
+                {{!-- opções no pedido --}}
+                <table>
+                    <tr>
+                        <td>
+                            <a href="/pedidos/consultapedido/{{_id}}"><button class="btn btn-success mt-2">Ver mais</button></a>
+                        </td>
+                        <td></td>
+                        <td>
+                            <a href="/pedidos/editpedido/{{_id}}"><button class="btn btn-success mt-2">Editar</button></a>
+                        </td>
+                        <td></td>
+                        <td>
+                            <form action="/pedidos/deletpedido" method="POST">
+                                <input type="hidden" name="id" value="{{_id}}">
+                                <button type="submit" class="btn btn-danger mt-2 ">Cancelar</button>
+                            </form>
+                        </td>
+                    </tr>
+                </table>
+
+            </div>
+        </div>
+    </div>
+    {{else}}
+
+    <div class="card mt-2">
+            <h2>Nenhuma venda registrada no momento</h2>
+    </div>
+
+    {{/each}}  
+</div>
+
+
+
+{{else}}
+
+{{/if}}

@@ -1,0 +1,32 @@
+{{#if user}}
+<div class="card mt-2">
+    <div class="card-body">
+        <h1>Catalogo de produtos</h1>
+    </div>
+</div>
+
+{{!-- mostra todos os produtos cadastrados --}}
+<div class="row mt-2 row-cols-1 row-cols-md-4 g-3">
+    {{#each produtos}}
+    <div class="col">
+        <div class="card h-80 mt-1">
+            <div class="card-body">
+                <h4 class="card-title">Nome: {{this.nome}}</h4>
+                <p class="card-text">Valor unitário: {{this.valor}}</p>
+                <p class="card-text">Estoque: </p>
+            </div>
+        </div>
+    </div>
+    {{else}}
+
+    <div class="card mt-2">
+            <h1>Nenhuma produto cadastrado</h1>
+    </div>
+
+    {{/each}}  
+</div>
+
+
+{{else}}
+
+{{/if}}

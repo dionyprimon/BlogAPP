@@ -1,0 +1,41 @@
+{{#if user}}
+<div class="card mt-2">
+    <div class="card-body">
+        <h1>Catalogo de produtos</h1>
+    </div>
+</div>
+
+{{!-- opções de categorias para filtrar --}}
+<div class="btn-group mt-3" role="group" aria-label="Basic example">
+    {{#each categorias}}
+        <a href="/catalogo/itemfilter/{{this.slug}}" ><button type="button" class="btn btn-primary">{{this.nome}}</button></a>
+    {{else}}
+        <h4 class="mt-3">Nenhuma categoria cadastrada</h4>
+    {{/each}}
+</div>
+
+
+{{!-- mostra todos os produtos cadastrados --}}
+<div class="row mt-2 row-cols-1 row-cols-md-4 g-3">
+    {{#each produtos}}
+    <div class="col">
+        <div class="card h-80 mt-1">
+            <div class="card-body">
+                <h4 class="card-title">Nome: {{this.nome}}</h4>
+                <p class="card-text">Valor unitário: {{this.valor}}</p>
+                {{!-- <p class="card-text">Estoque: </p> --}}
+            </div>
+        </div>
+    </div>
+    {{else}}
+        <h4 class="mt-3">Nenhuma produto cadastrado</h4>
+    {{/each}}  
+</div>
+
+
+
+
+
+{{else}}
+
+{{/if}}

@@ -1,3 +1,5 @@
+{{!-- PÁGINA DE CRIAÇÃO DE USUÁRIOS DENTRO DO SISTEMA --}}
+
 {{!-- função que exibe os possíveis alertas de erros --}}
 {{#each erros}}
     <div class="alert alert-danger">{{texto}}</div>
@@ -5,13 +7,15 @@
 
 {{/each}}
 
+
+{{#if user}}
 <div class="card mt-2">
     <div class="card-body">
         <h1>Cadastro de usuario</h1>
     </div>
 </div>
 
-{{!-- formulário de registro --}}
+{{!-- formulário de cadastro do usuário --}}
 <div class="card mt-2">
     <div class="card-body">
         <form action="" method="post">
@@ -27,3 +31,6 @@
         </form>
     </div>
 </div>
+{{else}}
+
+{{/if}}

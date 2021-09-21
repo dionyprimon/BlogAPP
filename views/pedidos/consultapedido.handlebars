@@ -1,0 +1,87 @@
+
+{{!-- função que exibe os possíveis alertas de erros --}}
+{{#each erros}}
+    <div class="alert alert-danger">{{texto}}</div>
+{{else}}
+
+{{/each}}
+
+{{#if user}}
+
+{{!-- Titulo --}}
+<div class="card mt-2">
+    <div class="card-body">
+        <h1>Consulta pedido</h1>
+    </div>
+</div>
+
+{{!-- formulário de cadastro do pedido --}}
+<form action="/pedidos/newpedido" method="post">
+    <div class="card mt-2">
+        <div class="card-body">
+                {{!-- Cliente --}}
+                <label for="nome">Cliente: </label>
+                <select name="cliente" class="form-select form-select-lg mt-2" aria-label="">
+                        {{#each clientes}}
+                            <option value="{{_id}}">{{nome}}</option>
+                        {{else}}
+                            <option value="0">Nenhum cliente cadastrado</option>
+                        {{/each}}
+                </select>
+
+                {{!-- produto / quantidade --}}
+                <div class="col mt-2">
+                    <div class="card h-60 mt-1">
+                        <div class="card-body">
+
+                                <div class="row">
+                                    <div class="col-6">
+                                        <label for="produto">Produto: </label>
+                                        <select name="produto" class="form-select form-select-lg mt-2" aria-label="">
+                                                {{#each produtos}}
+                                                    <option value="{{_id}}">{{nome}} | $: {{valor}} unit</option>
+                                                {{else}}
+                                                    <option value="0">Nenhum produto cadastrado</option>
+                                                {{/each}}
+                                        </select>
+                                    </div>
+
+                                    <div class="col-3">
+                                        <h1></h1>
+                                        <label for="valorVenda">Valor venda: </label>
+                                            <input type="text" name="valorVenda" class="form-control mx-sm mb-2 mt-2" placeholder="{{pedidos.valorUnit}},00" required>
+                                        <h1></h1>
+                                    </div>
+
+                                    <div class="col-3">
+                                        <h1></h1>
+                                        <label for="quantidade">Quantidade:</label>
+                                            <input type="text" name="quantidade" class="form-control mx-sm mb-2 mt-2" placeholder="{{pedidos.quantidade}}"required>
+                                        <h1></h1>
+                                    </div>
+
+                                    <div class="col-3">
+                                        <h1></h1>
+                                        <label for="valorTotal">Valor Total: </label>
+                                        <h1></h1>
+                                        <fieldset disabled>
+                                            <input type="text" id="valorTotal" class="form-control" placeholder="{{pedidos.valorTotal}},00">
+                                        <h1></h1>
+                                        </fieldset>
+                                    </div>
+
+                                </div>
+
+                        </div>
+                    </div>
+                </div>
+
+            </form>
+        </div>
+    </div>
+</form>
+
+
+{{else}}
+
+{{/if}}

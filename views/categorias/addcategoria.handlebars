@@ -4,16 +4,27 @@
 
 {{/each}}
 
-<h3>Nova categoria: </h3>
-<hr>
-<div class="card">
+{{#if user}}
+
+<div class="card mt-2">
     <div class="card-body">
-        <form action="/admin/categorias/nova" method="POST">
+        <h1>Nova categoria: </h1>
+    </div>
+</div>
+
+<div class="card mt-2">
+    <div class="card-body">
+        <form action="/categorias/criacategoria" method="POST">
         <label for="nome">Nome:</label>
             <input type="text" id="nome" name="nome" placeholder="Nome da categoria" class="form-control" required>
-        <label for="slug">Slug</label>
+        <label for="slug">Slug/Tag</label>
             <input type="text" id="slug" name="slug" placeholder="Slug da categoria" class="form-control" required>
         <button type="submit" class="btn btn-success mt-2">Criar categoria</button>
         </form>
     </div>
 </div>
+
+
+{{else}}
+
+{{/if}}

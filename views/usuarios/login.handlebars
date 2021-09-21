@@ -1,13 +1,18 @@
-<h2>Login:</h2>
-<hr>
-<div class="card">
-    <div class="card-body">
-        <form action="usuarios/login" method="POST">
-            <label for="email">Email: </label>
-                <input type="email" class="form-control" name="email" required>
-            <label for="senha">Senha: </label>
-                <input type="password" class="form-control" name="senha" required>
-            <button class="btn btn-success mt-2" type="submit">Entrar</button>
-        </form>
+<div class="container">
+    <div class="card mt-2" style="margin: 0 auto; width: 500px; margin-top: auto; border-radius: 10px; border-width: 2px; border-style: solid; padding: 15px;">
+        <div class="row login-form">
+            <!-- imagem logo -->
+            <div>
+                <center><img src="http://localhost:8081/img/logo_1.png" /></center>
+            </div>
+            <form action="/usuarios/login" method="POST">
+                <label for="email">Email: </label>
+                    <input type="email" class="form-control" name="email" required>
+                <label for="senha">Senha: </label>
+                    <input type="password" class="form-control" name="senha" required>
+                    <div id="login" class="form-text">Nunca compartilhe sua senha com ninguém</div>
+                <button class="btn btn-success mt-2" type="submit">Entrar</button>
+            </form>
+        </div>
     </div>
 </div>

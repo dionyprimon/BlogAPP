@@ -1,0 +1,34 @@
+
+{{!-- função que exibe os possíveis alertas de erros --}}
+{{#each erros}}
+    <div class="alert alert-danger">{{texto}}</div>
+{{else}}
+
+{{/each}}
+{{#if user}}
+<div class="card mt-2">
+    <div class="card-body">
+        <h1>Edição de cliente</h1>
+    </div>
+</div>
+
+{{!-- formulário de cadastro do cliente --}}
+<div class="card mt-2">
+    <div class="card-body">
+        <form action="/clientes/editacliente" method="post">
+        <input type="hidden" name="id" value="{{clientes._id}}">
+            <label for="nome">Nome: </label>
+                <input type="text" name="nome" class="form-control mt-2" required value="{{clientes.nome}}">
+            <label for="fone">Telefone: </label>
+                <input type="number" name="fone" class="form-control mt-2" required value="{{clientes.telefone}}">
+            <label for="email">Email: </label>
+                <input type="email" name="email" class="form-control mt-2" required value="{{clientes.email}}">
+            <button type="submit" class="btn btn-success mt-4">Editar</button>
+        </form>
+    </div>
+</div>
+
+
+{{else}}
+
+{{/if}}
